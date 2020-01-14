@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="address" class="com.aom.beans.Address">
+		<property name="city" value="Hyderabad" />
+		<property name="street" value="Gachibowli" />
+		<property name="zipCode" value="400031" />
+	</bean>
+	<bean id="product" class="com.aom.beans.Product">
+		<property name="productName" value="Mobile phone" />
+		<property name="productPrice" value="13000" />
+		<property name="productQuantity" value="1" />
+	</bean>
+	<bean id="dtdc" name  = "bluedart" class="com.aom.beans.DTDCTransportManagerImpl"></bean>
+	
+	<!-- <bean id="bluedart" class="com.aom.beans.BlueDartTransportManagerImpl"></bean> -->
+	
+	<bean id="orderManager" class="com.aom.beans.OrderManager">
+		<property name="bluedartTransportManager" ref="bluedart"></property>
+		<property name="dtdcTransportManger" ref="dtdc"></property>
+	</bean>
+
+</beans>
